@@ -123,7 +123,7 @@ class School:
                 return course
         return None
     
-    def get_students_with_failed_grades(fail_threshold=60):
+    def get_students_with_failed_grades(self, fail_threshold=60):
         failed_students = []
         for student in self.students:
             for course, grades in student.grades.items():
