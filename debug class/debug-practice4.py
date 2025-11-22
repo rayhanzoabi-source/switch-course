@@ -24,7 +24,7 @@ class Student(Person):
             print(f"{self.name} is already enrolled in {course.name}")
 
     def assign_grade(self, course, grade):
-        if course in self.courses:
+        if course in self.courses:                                                     
             self.grades[course].append(grade)
             print(f"Grade {grade} assigned to {self.name} for {course.name}")
         else:

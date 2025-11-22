@@ -16,7 +16,10 @@ def transfer(from_acc, to_acc, amount):
     accounts[to_acc] += amount
 
 def deposit(account_name, amount):
-    account = accounts.get(account_name, 0) + amount
+    try:
+    account = accounts.get(account_name)
+    accounts[accounts] += amount
+    
 
 transfer("a", "c", 20)
 deposit("b", 150)

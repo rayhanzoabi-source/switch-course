@@ -29,9 +29,21 @@ def is_empty(user_input):
     else:
         return "The input is not empty"
 
+def is_invalid_string(user_input, option):
+    """Return True if the input is invalid based on menu option."""
+    # Empty string always invalid
+    if len(user_input) == 0:
+        return True
+    
+    # If the option is NOT digit-checking (option != 3), we require letters
+    if option != 3 and not any(char.isalpha() for char in user_input):
+        return True
+    
+    return False 
+
 #Menu
 
-threshold = 5
+threshold = 6
 
 while True:
     print("\n--- Number Toolbox ---")
@@ -53,9 +65,9 @@ while True:
         break
     if user_choice in [1, 2, 3, 4, 5]:
         user_input = input("Enter your input: ")
-        if not user_input or (not any(char.isalpha() for char in user_input) and user_choice != 3):
-            print("Please enter a valid string with letters!")
-            continue
+        if is_invalid_string(user_input, user_choice):
+            print("Invalid input! Please enter a valid string.")
+            continue 
 
     if user_choice == 1:
         print(is_palindrome(user_input))
